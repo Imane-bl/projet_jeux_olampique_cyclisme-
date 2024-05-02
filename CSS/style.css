@@ -1,0 +1,309 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --main-color: #10cab7;
+    --secondary-color: #2c4755;
+    --section-padding: 60px;
+    --section-background: white;
+    --main-duration: 0.5s;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+body{
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+/*STYLING header side */
+.container {
+    max-width: 100%;
+    padding: 0 20px; /* Add some padding to the sides */
+    margin: 0 auto;
+    background-color: #eee;
+    padding: 10px 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+header {
+    justify-content: space-between; /* Align items to the start and end of the container */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px;
+    width: 100%;
+    height: auto; /* Adjust height to auto for responsiveness */
+    background-color: #eee;
+    position: relative;
+}
+
+header nav {
+    text-align: center; /* Align links to the center */
+    margin-top: 10px; /* Add some top margin */
+    margin-right: 11px;
+}
+
+header nav a {
+    color: black;
+    margin: 0 10px; /* Add margin to create space between links */
+    text-decoration: none;
+}
+
+header .display_flex {
+    position: absolute;
+    display: flex;
+    right: 5px;
+    top: 20px;
+}
+/*header .btns ....nkml*/
+.btn_inscrire,
+ .btn_connexion {
+    padding: 7px;
+    border-radius: 3px;
+    border-style: none;
+    margin-right: 10px;
+    margin-top: 5px;
+    transition: color 0.3s ease; 
+}
+
+ .btn_inscrire {
+    background-color: var(--section-background);
+}
+/*for making hover for botns*/
+.btn_inscrire:hover ,
+ .btn_connexion:hover{
+    cursor: pointer;
+}
+ .btn_inscrire:hover {
+    background-color: black;
+    color:white;
+}
+.btn_connexion:hover {
+    background-color: white;
+    color:black;
+}
+/*end hover*/
+
+
+ .btn_connexion {
+    background-color: black;
+    color: white;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    header nav {
+        text-align: center; /* Align links to the center */
+        margin-top: 20px; /* Increase top margin */
+    }
+
+    header .display_flex {
+        position: static; /* Remove absolute positioning */
+        margin-top: 20px; /* Adjust top margin */
+    }
+
+   .btn_inscrire,
+ .btn_connexion {
+        margin-top: 10px; /* Adjust top margin */
+    }
+}
+/*end media header*/
+
+.contenu{
+   position: relative;
+}
+.contenu h2{
+    line-height: 3.4rem;
+}
+.contenu .center{
+    text-align: center;
+
+ 
+}
+/*
+.images_translate_grid img,
+.images_translate_grid2 img{
+    width:299px;
+    height:170px;
+}
+.container .images_translate_grid {
+    
+    margin-top: 50px;
+  
+display:grid;
+gap:20px;
+row-gap: 50px;
+grid-template-columns: repeat(4,auto);
+/*
+animation-duration: 6s;
+animation-timing-function:linear ;
+animation-delay: 0s;
+animation-iteration-count:initial;
+animation-play-state:running;
+animation: leftslide;
+animation: 6s linear 0s infinite running leftslide;
+}
+
+/*
+.images_translate_grid2{
+    display:grid;
+    gap:20px;
+    row-gap: 50px;  
+}
+.images_translate_grid2 {
+    display:grid;
+    gap:20px;
+    row-gap: 50px;
+    grid-template-columns: repeat(4,auto);
+    animation: 6s linear 0s infinite running rightslide;
+    }
+*/
+@keyframes leftslide{
+    from{margin-left:100%;}
+    to{mergin-left:0%;}
+}
+@keyframes leftslide{
+    from{margin-left:0%;}
+    to{mergin-left:100%;}
+}
+
+/*commencer le slide */
+/*
+body{
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+}*/
+.container .slider{
+    height:250px;
+    margin:auto;
+   
+ 
+    display:grid;
+    place-items:center;
+}
+.slide-track{
+    display:flex;
+    width:calc(250px *8);
+animation: scroll 40s linear infinite;
+}
+.slide-track2{
+    display:flex;
+    width:calc(250px *8);
+animation: scroll2 40s linear infinite; 
+}
+.slide-track:hover{
+    animation-play-state: paused;
+}
+.slide-track2:hover{
+    animation-play-state: paused;
+}
+@keyframes scroll{
+    0%{
+        transform:translateX(0);
+    }100%{
+        transform: translateX(calc(-150px*8));
+    }
+}
+@keyframes scroll2{
+    100%{
+        transform:translateX(100);
+    }0%{
+        transform: translateX(calc(-150px*8));
+    }
+}
+
+/* slide for begin from left border  jai donner la meme class pour les images en haut et en dessus */
+.slide{
+    height:200px;
+    width:250px;
+    display:flex;
+   padding:15px;
+   perspective: 100px;
+}
+.slider{
+    height:300px;
+}
+#image{
+    width:100%;
+    transition: transform 1s;
+    
+}
+#image:hover{
+    transform: translateZ(20px);
+}
+/*shadow befor and afer*/
+
+.slider::before,
+.slider::after{
+        content:'';
+    background: linear-gradient(to right, rgb(240, 240, 240) 0%,
+    rgba(255,255,255,0) 100%);
+height:100%;
+position: absolute;
+width:15%;
+
+z-index: 2;
+
+}
+.slider::before,
+.slider::after
+{
+    content:'';
+    top:200px;  
+    bottom: -50px; /*hna prblm shadow hadak jay hta ltht essaie le rouge */
+}
+.slider::before,
+.slider2::before
+{
+  left:0;
+       
+    }
+.slider::after,
+.slider2::after{
+    right:0;
+    transform:rotateZ(180deg);
+}
+.contenu .top{
+    margin-top:30px;
+}
+
+/*styleing second_parte *************************************************************/
+.second_parte{
+    margin-top:30px;
+    text-align: center;
+}
+.second_parte .grid_parte{
+    min-width: 400px;
+    max-width: 800px;
+    position: static;
+    margin-top:40px;
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap:20px;
+
+}
+.second_parte .grid_parte .parte h2{
+    max-width:100px;
+}
+.second_parte .grid_parte .parte p{
+    margin-top:20px;
+
+}
+.second_parte .grid_parte .parte button{
+    margin-top:20px;
+
+}
+
+
